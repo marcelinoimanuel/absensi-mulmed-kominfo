@@ -1,0 +1,133 @@
+/* Reset style dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Styling untuk body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0079f9, #bbdffb);
+}
+
+/* Styling untuk kontainer form */
+.form-container {
+    justify-content: center;
+    position: relative;
+}
+
+/* Styling untuk gambar profil */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    border: 3px solid #1a3b5d;
+    display: block;
+}
+
+.judul {
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+/* Styling untuk judul */
+.title {
+    color: #ffffff;
+    font-size: 21px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+/* Styling untuk form */
+form {
+    background-color: #2196f3;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    width: 300px;
+    margin-left: 1.95rem;
+}
+
+/* Styling untuk label */
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Styling untuk input teks */
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0 15px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #1a3b5d;
+}
+
+/* Styling untuk dropdown select */
+select {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #1a3b5d;
+    margin-bottom: 20px;
+}
+
+
+/* Styling untuk tombol submit */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #285e8e;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1a3b5d; /* Warna biru lebih tua saat hover */
+}
+
+.spinner {
+    display: none; /* Hidden by default */
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: fixed; /* Positioning the spinner */
+    top: 50%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensuring it is above other elements */
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

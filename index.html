@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Absensi Tim Multimedia</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="logo-kominfo.png" />
+  </head>
+  <body>
+    <div class="form-container">
+      <img
+        src="logo-kominfo.png"
+        alt="Logo BPSDMP KOMINFO"
+        class="profile-pic"
+      />
+
+      <h2 class="judul">ABSENSI TIM MULTIMEDIA</h2>
+      <h3 class="title">BPSDMP KOMINFO MANADO</h3>
+
+      <form action="" name="absen-tim-mulmed">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required />
+        <br />
+
+        <label for="jabatan">Posisi:</label>
+        <select id="jabatan" name="posisi" required>
+          <option value="multimedia">Tim Multimedia</option>
+        </select>
+        <br />
+
+        <label for="absen">Absen:</label>
+        <select id="absen" name="absen" required>
+          <option value="masuk">Masuk</option>
+          <option value="keluar">Keluar</option>
+        </select>
+        <br />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div class="spinner" id="spinner"></div>
+      <!-- Loading spinner -->
+    </div>
+
+    <script>
+      if (sessionStorage.getItem("formSubmitted") === "true") {
+        // Redirect to berhasil.html if form is already submitted
+        window.location.href = "berhasil.html";
+      }
+
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycby7jRuOZpmBbhCdwp1pZZMBO7YrSVyTTYrU7_bMO_9X3Ph-JkMnjPJXEOIOi5S7ufta/exec";
+      const form = document.forms["absen-tim-mulmed"];
+      const spinner = document.getElementById("spinner");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        spinner.style.display = "block"; // Show spinner on submit
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            form.reset();
+            window.location.href = "berhasil.html"; // Redirect on success
+            console.log("Success!", response);
+          })
+          .catch((error) => {
+            console.error("Error!", error.message);
+          })
+          .finally(() => {
+            spinner.style.display = "none"; // Hide spinner after submission
+          });
+      });
+    </script>
+  </body>
+</html>
