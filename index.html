@@ -40,12 +40,10 @@
       </form>
 
       <div class="spinner" id="spinner"></div>
-      <!-- Loading spinner -->
     </div>
 
     <script>
       if (sessionStorage.getItem("formSubmitted") === "true") {
-        // Redirect to berhasil.html if form is already submitted
         window.location.href = "berhasil.html";
       }
 
@@ -56,21 +54,21 @@
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        spinner.style.display = "block"; // Show spinner on submit
+        spinner.style.display = "block";
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
             }
             form.reset();
-            window.location.href = "berhasil.html"; // Redirect on success
+            window.location.href = "berhasil.html";
             console.log("Success!", response);
           })
           .catch((error) => {
             console.error("Error!", error.message);
           })
           .finally(() => {
-            spinner.style.display = "none"; // Hide spinner after submission
+            spinner.style.display = "none";
           });
       });
     </script>
