@@ -117,7 +117,7 @@ button:hover {
     animation: spin 1s linear infinite;
     position: fixed;
     top: 50%;
-    left: 49%;
+    left: 48.5%;
     transform: translate(-50%, -50%);
     z-index: 10;
   }
